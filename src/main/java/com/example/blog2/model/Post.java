@@ -2,10 +2,7 @@ package com.example.blog2.model;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @CrossOrigin(origins = "*")
@@ -15,7 +12,7 @@ public class Post {
     private Integer postId;
 
     private String name;
-
+    @Column(columnDefinition = "text")
     private String description;
     private String author;
 
