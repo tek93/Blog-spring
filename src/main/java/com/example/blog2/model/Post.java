@@ -1,13 +1,10 @@
 package com.example.blog2.model;
 
-import com.example.blog2.DataTime;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 import javax.persistence.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 
@@ -22,9 +19,8 @@ public class Post {
     @Column(columnDefinition = "text")
     private String description;
     private String author;
-
-    private String created  = new DataTime().formatDateTime;
-
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created ;
 
 
 
@@ -37,7 +33,7 @@ public class Post {
 
     }
 
-    public Post( String name, String description, String author, String created) {
+    public Post( String name, String description, String author, Date created) {
 
         this.name = name;
         this.description = description;
