@@ -31,7 +31,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-   // auth.inMemoryAuthentication().withUser("tom").password("{noop}tom123").roles("USER");
+   // auth.inMemoryAuthentication().withUser("tomek").password("{noop}tom123").roles("USER");
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
@@ -41,15 +41,15 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
-    @EventListener(ApplicationReadyEvent.class)
-    public void get(){
-        User user1 = new User("tomek",passwordEncoder().encode("tom123"), "USER");
-        User user2 = new User("elvis_presley",passwordEncoder().encode("tom123"), "USER");
-    userRepository.save(user1);
-    userRepository.save(user2);
-
-
-    }
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void get(){
+//        User user1 = new User("tomek",passwordEncoder().encode("tom123"), "USER");
+//        User user2 = new User("elvis_presley",passwordEncoder().encode("tom123"), "USER");
+//    userRepository.save(user1);
+//    userRepository.save(user2);
+//
+//
+//    }
 
 
     @Override

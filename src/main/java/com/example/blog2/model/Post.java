@@ -1,16 +1,19 @@
 package com.example.blog2.model;
 
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 import javax.persistence.*;
 
-import java.util.Date;
+
 
 
 @Entity
 @CrossOrigin(origins = "*")
 public class Post {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer postId;
@@ -19,8 +22,6 @@ public class Post {
     @Column(columnDefinition = "text")
     private String description;
     private String author;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created ;
 
 
 
@@ -31,21 +32,21 @@ public class Post {
         this.description = description;
         this.author = author;
 
+
+
     }
 
-    public Post( String name, String description, String author, Date created) {
+    public Post( String name, String description, String author) {
 
         this.name = name;
         this.description = description;
         this.author = author;
 
-        this.created = created;
 
     }
 
     public Post() {
     }
-
 
 
 
